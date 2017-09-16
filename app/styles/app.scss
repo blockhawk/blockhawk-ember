@@ -1,0 +1,8 @@
+$hawk-black: #1B1B1B;
+
+@import 'routes/index';
+
+body {
+  background: $hawk-black;
+  margin: 0;
+}
