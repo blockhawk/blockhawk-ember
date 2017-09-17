@@ -1,6 +1,10 @@
 $hawk-black: #1B1B1B;
 $hawk-red: #E92636;
 
+$regular: 400;
+$semibold: 600;
+$bold: 700;
+
 @import 'routes/index';
 
 body {
@@ -13,5 +17,10 @@ body {
 
 .teko {
   font-family: 'Teko', sans-serif;
-  font-weight: 600;
+  font-weight: $semibold;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }

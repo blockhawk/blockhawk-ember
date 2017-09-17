@@ -5,11 +5,38 @@
   display: flex;
 
   .splash-container {
-    margin: auto;
-    text-align: center;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
 
-    .subtitle {
-      font-size: 12px;
+    .top-bar {
+      position: absolute;
+
+      .logo {
+        font-size: 2em;
+      }
     }
+
+    .hero-content {
+      margin: auto;
+      text-align: center;
+
+      .pitch {
+        font-weight: $bold;
+        font-size: 3.5em;
+        width: 60%;
+        margin: auto;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .pitch {
+    font-size: 2.5em !important;
+    width: 80% !important;
   }
 }
