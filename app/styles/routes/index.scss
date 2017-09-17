@@ -1,5 +1,15 @@
-.splash-container {
+.splash-section {
   height: 100vh;
   background: $hawk-black url('/assets/splash.jpg') no-repeat center center fixed;
   background-size: cover;
+  display: flex;
+
+  .splash-container {
+    margin: auto;
+    text-align: center;
+
+    .subtitle {
+      font-size: 12px;
+    }
+  }
 }

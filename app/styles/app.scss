@@ -1,8 +1,17 @@
 $hawk-black: #1B1B1B;
+$hawk-red: #E92636;
 
 @import 'routes/index';
 
 body {
   background: $hawk-black;
   margin: 0;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.teko {
+  font-family: 'Teko', sans-serif;
+  font-weight: 600;
 }
