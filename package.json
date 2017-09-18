@@ -13,7 +13,8 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember test"
+    "test": "ember test",
+    "deploy": "ember github-pages:commit --branch master --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\"; git checkout master; git push; git checkout ember"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
