@@ -10,5 +10,9 @@ export default Ember.Service.extend({
     } else {
       // do my fallback here
     }
+  },
+
+  contract(abi, address) {
+    return this._instance.eth.contract(abi).at(address);
   }
 });
