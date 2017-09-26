@@ -11,7 +11,7 @@ export default Ember.Route.extend({
     }
   },
 
-  model() {
+  /*model() {
     const web3 = this.get('web3');
     const teamContract = this.contractJSON('NFLTeams').then(json => {
       return web3.contract(json.abi, '0xe321c46de2e62deba0cb3a8a254e9229eb25123d');
@@ -30,7 +30,7 @@ export default Ember.Route.extend({
       teamCount: teamCount,
       abbrs: abbrs
     });
-  },
+  },*/
 
   contractJSON(contractName) {
     return $.getJSON(`contracts/${contractName}.json`);
