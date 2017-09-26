@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import web3 from 'npm:web3';
+import Web3 from 'npm:web3';
 
 export default Ember.Service.extend({
   _instance: null,
