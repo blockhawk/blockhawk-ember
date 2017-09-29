@@ -11,40 +11,22 @@ export default Ember.Route.extend({
     }
   },
 
-  /*model() {
+  model() {
     const web3 = this.get('web3');
-    const teamContract = this.contractJSON('NFLTeams').then(json => {
-      return web3.contract(json.abi, '0xe321c46de2e62deba0cb3a8a254e9229eb25123d');
+    const contract = $.getJSON('contracts/NFLWeek.json').then(json => {
+      return web3.contract(json.abi, '0x0325f3ec4a276ce26f134022ccc026afdb3d522f');
     });
 
-    const teamCount = teamContract.then(contract => {
-      return this.call(contract, 'teamCount');
-    });
-
-    const abbrs = teamContract.then(contract => {
-      return this.call(contract, 'abbrs', 0);
-    });
-
-    return RSVP.hash({
-      teamContract: teamContract,
-      teamCount: teamCount,
-      abbrs: abbrs
-    });
-  },*/
-
-  contractJSON(contractName) {
-    return $.getJSON(`contracts/${contractName}.json`);
-  },
-
-  call(contract, functionName, ...params) {
-    return new RSVP.Promise((resolve, reject) => {
-      contract[functionName](...params, (error, result) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(result);
+    const games = contract.then(contract => {
+      return contract.methods.gamesCount().call().then(gamesCount => {
+        let promises = [];
+        for (let i = 0; i < gamesCount; i++) {
+          promises.push(contract.methods.games(i).call());
         }
+        return RSVP.all(promises);
       });
     });
+
+    return games;
   }
 });

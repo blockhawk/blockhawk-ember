@@ -13,6 +13,6 @@ export default Ember.Service.extend({
   },
 
   contract(abi, address) {
-    return this._instance.eth.contract(abi).at(address);
+    return new this._instance.eth.Contract(abi, address);
   }
 });

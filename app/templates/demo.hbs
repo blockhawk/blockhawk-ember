@@ -1,3 +1,4 @@
 <h1>DEMO</h1>
-{{model.teamCount}}
-{{model.abbrs}}
+{{#each model as |game|}}
+  <p>{{game}}</p>
+{{/each}}
