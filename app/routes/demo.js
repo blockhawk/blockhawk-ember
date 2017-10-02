@@ -14,14 +14,20 @@ export default Ember.Route.extend({
   model() {
     const web3 = this.get('web3');
     const contract = $.getJSON('contracts/NFLWeek.json').then(json => {
-      return web3.contract(json.abi, '0x0325f3ec4a276ce26f134022ccc026afdb3d522f');
+      return web3.contract(json.abi, '0x3f12d8184ad248cc2d1143bd698765ad800799db');
     });
 
+    const store = this.get('store');
     const games = contract.then(contract => {
       return contract.methods.gamesCount().call().then(gamesCount => {
         let promises = [];
         for (let i = 0; i < gamesCount; i++) {
-          promises.push(contract.methods.games(i).call());
+          const gamePromise = contract.methods.games(i).call().then(game => {
+            game.id = i;
+            store.pushPayload('game', {game: game});
+            return store.peekRecord('game', i);
+          });
+          promises.push(gamePromise);
         }
         return RSVP.all(promises);
       });
