@@ -1,0 +1,26 @@
+.score-box {
+  background: $hawk-grey;
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+
+  p {
+    margin: 0;
+  }
+
+  .score-box-header {
+    padding: 8px;
+    border-bottom: 1px solid $hawk-black;
+  }
+
+  .top-row, .bottom-row {
+    padding: 8px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-weight: $bold;
+  }
+}

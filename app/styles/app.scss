@@ -1,4 +1,5 @@
 $hawk-black: #1B1B1B;
+$hawk-grey: #3C3C3C;
 $hawk-red: #E92636;
 
 $regular: 400;
@@ -6,6 +7,7 @@ $semibold: 600;
 $bold: 700;
 
 @import 'routes/index';
+@import 'components/score-box';
 
 body {
   background: $hawk-black;
