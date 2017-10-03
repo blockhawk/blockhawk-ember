@@ -22,10 +22,17 @@
       text-align: center;
 
       .pitch {
-        font-weight: $bold;
-        font-size: 3.5em;
-        width: 60%;
+        font-weight: $extrabold;
+        font-size: 4em;
         margin: auto;
+        text-transform: uppercase;
+      }
+
+      .sub-pitch {
+        width: 50%;
+        margin: auto;
+        font-weight: $regular;
+        font-size: 1.25em;
       }
 
       .buttons {
@@ -38,6 +45,9 @@
 @media only screen and (max-width: 600px) {
   .pitch {
     font-size: 2.5em !important;
-    width: 80% !important;
+  }
+
+  .sub-pitch {
+    width: 75% !important;
   }
 }
