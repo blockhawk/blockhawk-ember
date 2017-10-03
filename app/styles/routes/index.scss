@@ -30,13 +30,15 @@
 
       .sub-pitch {
         width: 50%;
-        margin: auto;
+        margin: 10px auto;
         font-weight: $regular;
         font-size: 1.25em;
       }
 
-      .buttons {
-        margin-top: 40px;
+      #mc_embed_signup .button {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: $extrabold;
+        text-transform: uppercase;
       }
     }
   }
@@ -49,5 +51,12 @@
 
   .sub-pitch {
     width: 75% !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #mc_embed_signup {
+    width: 75%;
+    margin: auto;
   }
 }
