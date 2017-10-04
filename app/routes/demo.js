@@ -22,13 +22,13 @@ export default Ember.Route.extend({
   checkNetwork(resolve, reject) {
     const web3 = this.get('web3');
     if (!web3.get('metaMaskDetected')) {
-      reject('MetaMask not detected');
+      reject(new Error('MetaMask not detected'));
       return;
     }
 
     return web3.network().then(network => {
       if (network !== 'ropsten') {
-        reject('Please use the Ropsten network');
+        reject(new Error('Please use the Ropsten network'));
       } else {
         resolve();
       }
