@@ -6,15 +6,39 @@ export default Ember.Route.extend({
   web3: Ember.inject.service(),
 
   beforeModel() {
-    if (document.readyState !== 'complete') {
-      return new RSVP.Promise(resolve => window.addEventListener('load', resolve));
+    if (document.readyState === 'complete') {
+      return new RSVP.Promise((resolve, reject) => {
+        this.checkNetwork(resolve, reject);
+      });
+    } else {
+      return new RSVP.Promise((resolve, reject) => {
+        window.addEventListener('load', () => {
+          this.checkNetwork(resolve, reject);
+        });
+      });
     }
+  },
+
+  checkNetwork(resolve, reject) {
+    const web3 = this.get('web3');
+    if (!web3.get('metaMaskDetected')) {
+      reject('MetaMask not detected');
+      return;
+    }
+
+    return web3.network().then(network => {
+      if (network !== 'ropsten') {
+        reject('Please use the Ropsten network');
+      } else {
+        resolve();
+      }
+    });
   },
 
   model() {
     const web3 = this.get('web3');
     const contract = $.getJSON('contracts/NFLWeek.json').then(json => {
-      return web3.contract(json.abi, '0x3f12d8184ad248cc2d1143bd698765ad800799db');
+      return web3.contract(json.abi, '0x4687f401aA791b93983EF30905658Fca93Cb8503');
     });
 
     const store = this.get('store');
