@@ -5,17 +5,8 @@
   display: flex;
 
   .splash-container {
-    padding: 16px;
     display: flex;
     flex-direction: column;
-
-    .top-bar {
-      position: absolute;
-
-      .logo {
-        font-size: 2em;
-      }
-    }
 
     .hero-content {
       margin: auto;

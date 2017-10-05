@@ -1,1 +1,9 @@
+<nav class={{if (eq currentPath 'index') 'absolute'}}>
+  <div class='hawk-container'>
+    <ul>
+      <li class='logo teko'>{{link-to 'BLOCKHAWK' 'index'}}</li>
+      <li>{{link-to 'Demo' 'demo'}}</li>
+    </ul>
+  </div>
+</nav>
 {{outlet}}
