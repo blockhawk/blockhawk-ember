@@ -1,5 +1,5 @@
 <div class='score-box-header'>
   <p class='score-box-date'>{{moment-format game.startTime 'ddd, h:mm A'}} ET</p>
 </div>
-<div class='top-row'>{{game.awayTeam.nickname}}</div>
-<div class='bottom-row'>{{game.homeTeam.nickname}}</div>
+<div class='top-row'><img src={{game.awayTeam.imageUrl}}>{{game.awayTeam.nickname}}</div>
+<div class='bottom-row'><img src={{game.homeTeam.imageUrl}}>{{game.homeTeam.nickname}}</div>

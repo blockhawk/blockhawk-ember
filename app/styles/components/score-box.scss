@@ -22,5 +22,10 @@
     display: flex;
     align-items: center;
     font-weight: $extrabold;
+
+    img {
+      width: 40px;
+      margin-right: 10px;
+    }
   }
 }
