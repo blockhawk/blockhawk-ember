@@ -1,9 +1,9 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  awayTeam: DS.attr('hex'),
+  awayTeam: DS.belongsTo('team'),
   awayTeamScore: DS.attr('number'),
-  homeTeam: DS.attr('hex'),
+  homeTeam: DS.belongsTo('team'),
   homeTeamScore: DS.attr('number'),
   spread: DS.attr('number'),
   startTime: DS.attr('epoch'),

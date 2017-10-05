@@ -1,7 +1,7 @@
 import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('game', 'Unit | Serializer | game', {
-  needs: ['serializer:game', 'transform:epoch', 'transform:hex']
+  needs: ['serializer:game', 'transform:epoch', 'model:team']
 });
 
 // Replace this with your real tests.

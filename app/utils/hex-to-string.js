@@ -3,7 +3,9 @@ export default function hexToString(hex) {
   let result = '';
   for (let i = 0; i < stripped.length; i += 2) {
     const charCode = parseInt(stripped.substr(i, 2), 16);
-    result += String.fromCharCode(charCode);
+    if (charCode !== 0) {
+      result += String.fromCharCode(charCode);
+    }
   }
   return result;
 }
