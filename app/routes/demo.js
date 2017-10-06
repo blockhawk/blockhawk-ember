@@ -32,7 +32,7 @@ export default Ember.Route.extend({
   model() {
     const web3 = this.get('web3');
     const contract = $.getJSON('contracts/NFLWeek.json').then(json => {
-      return web3.contract(json.abi, '0x4687f401aA791b93983EF30905658Fca93Cb8503');
+      return web3.contract(json.abi, '0x0F0d545c02FFD265768F247234c5FD41378DF598');
     });
 
     const store = this.get('store');

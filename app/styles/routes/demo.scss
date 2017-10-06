@@ -1,3 +1,12 @@
+.description {
+  text-align: center;
+  margin: 16px;
+
+  a {
+    text-decoration: underline;
+  }
+}
+
 .score-box-container {
   display: flex;
   flex-wrap: wrap;

@@ -1,5 +1,11 @@
 <div class='score-box-header'>
-  <p class='score-box-date'>{{moment-format game.startTime 'ddd, h:mm A'}} ET</p>
+  <p class='score-box-date'>
+    {{#if (eq game.state 0)}}
+      {{moment-format game.startTime 'ddd, h:mm A'}} ET
+    {{else}}
+      {{game.displayText}}
+    {{/if}}
+  </p>
 </div>
-<div class='top-row'><img src={{game.awayTeam.imageUrl}}>{{game.awayTeam.nickname}}</div>
-<div class='bottom-row'><img src={{game.homeTeam.imageUrl}}>{{game.homeTeam.nickname}}</div>
+<div class='top-row'><img src={{game.awayTeam.imageUrl}}>{{game.awayTeam.nickname}}<span class='score'>{{if (not-eq game.state 0) game.awayTeamScore}}</span></div>
+<div class='bottom-row'><img src={{game.homeTeam.imageUrl}}>{{game.homeTeam.nickname}}<span class='score'>{{if (not-eq game.state 0) game.homeTeamScore}}</span></div>
